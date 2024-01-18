@@ -17,6 +17,9 @@ dependencies:
   firebase_core: ^2.24.2
   firebase_auth: ^4.16.0
   google_sign_in_dartio: ^0.2.2+1
+  http: ^0.13.6
+  geocoding_resolver: ^0.0.3+2
+  maps_launcher: ^2.2.0
 
 dev_dependencies:
   flutter_test:

@@ -7,13 +7,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:google_sign_in_dartio/google_sign_in_dartio.dart';
 import 'controllers/auth_controller.dart';
+import 'controllers/search_controller.dart';
 import 'screens/registration_screen.dart';
 import 'screens/login_screen.dart';
 
 import 'firebase_options.dart';
+import 'screens/search_screen.dart';
 
 /// Requires that a Firebase local emulator is running locally.
-/// See https://firebase.flutter.dev/docs/auth/start/#optional-prototype-and-test-with-firebase-local-emulator-suite
 bool shouldUseFirebaseEmulator = false;
 
 late final FirebaseApp app;
@@ -21,7 +22,7 @@ late final FirebaseAuth auth;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // We store the app and auth to make testing with a named instance easier.
+  // Store the app and auth to make testing with a named instance easier.
   app = await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -48,6 +49,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<AuthController>(create: (_) => AuthController()),
+        ChangeNotifierProvider<SearchesController>(
+            create: (_) => SearchesController()),
         // Add other providers as needed.
       ],
       child: MaterialApp(
@@ -55,10 +58,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
-        home: const LoginScreen(),
+        home: const SearchScreen(),
         routes: {
           '/login': (context) => const LoginScreen(),
           '/register': (context) => const RegistrationScreen(),
+          '/search': (context) => const SearchScreen(),
           // Add more routes for other screens as needed.
         },
       ),
