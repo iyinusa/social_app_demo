@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:social_app_demo/screens/registration_screen.dart';
 import 'package:social_app_demo/utils/utils.dart';
 import '../controllers/auth_controller.dart';
 import '../models/user_model.dart';
@@ -40,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("User Login"),
+        title: const Text("User Login"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -49,19 +50,31 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             TextField(
               onChanged: (value) => email = value,
-              decoration: InputDecoration(labelText: 'Email'),
+              decoration: const InputDecoration(labelText: 'Email'),
             ),
             TextField(
               onChanged: (value) => password = value,
               obscureText: true,
-              decoration: InputDecoration(labelText: 'Password'),
+              decoration: const InputDecoration(labelText: 'Password'),
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () async {
-                loginUser();
-              },
-              child: Text("Login"),
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                GestureDetector(
+                  onTap: () => Utils().navTo(
+                    context,
+                    const RegistrationScreen(),
+                  ),
+                  child: const Text('Create Account'),
+                ),
+                const Spacer(),
+                ElevatedButton(
+                  onPressed: () async {
+                    loginUser();
+                  },
+                  child: const Text("Login"),
+                ),
+              ],
             ),
           ],
         ),
