@@ -1,16 +1,10 @@
-# social_app_demo
+# Social App
 
-A new Flutter project.
+Social App allows users to locate businesses closer to them.
+This project uses Firebase and Google Nearby Search API to suggest closer businesses.
 
-## Getting Started
+## Download Sample App
 
-This project is a starting point for a Flutter application.
+You can download the Demo app below.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[<img src="/google.png" width="150px" />](https://bit.ly/426pqAT)
